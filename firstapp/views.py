@@ -24,8 +24,34 @@ def functionview(request):
 def templateview(request):
     return render(request, "cheese.html", {"hello": "hello world"})
   
+
 class SecondView(View):
     def get(self, request, param):
-        return JsonResponse({"param": param})
+        query = request.GET.get("query", "no query")
+        bread = request.GET.get("bread", "no bread")
+        return JsonResponse(
+            {"param": param, "query": query, "bread": bread}
+        )
+        
+    def post(self, request, param):
+        query = request.GET.get("query", "no query")
+        bread = request.GET.get("bread", "no bread")
+        return JsonResponse(
+            {"param": param, "query": query, "bread": bread}
+        )
+
+    def put(self, request, param):
+        query = request.GET.get("query", "no query")
+        bread = request.GET.get("bread", "no bread")
+        return JsonResponse(
+            {"param": param, "query": query, "bread": bread}
+        )
+
+    def delete(self, request, param):
+        query = request.GET.get("query", "no query")
+        bread = request.GET.get("bread", "no bread")
+        return JsonResponse(
+            {"param": param, "query": query, "bread": bread}
+        )
     
     
