@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from firstapp.views import FirstView, functionview, templateview, SecondView
+from firstapp.views import FirstView, functionview, templateview, SecondView, ThirdView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("first/", FirstView.as_view()),
     path("f/", functionview),
     path("template/", templateview),
-    path("second/<param>/", SecondView.as_view())
+    path("second/<int:param>/", SecondView.as_view()),
+    path("third/", ThirdView.as_view())
 ]
